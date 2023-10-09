@@ -1,22 +1,16 @@
 import React, { useMemo, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Image, Button, ScrollView, StatusBar, TouchableOpacity, PermissionsAndroid } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, Button, ScrollView, StatusBar, TouchableOpacity, PermissionsAndroid, Modal } from 'react-native';
 import { styles, Colors, font, components } from '../components/customs/Styles';
 import Fade from '../components/customs/animations/Fade';
 import Move from '../components/customs/animations/Move';
 import B1 from '../components/customs/Button/B1';
-import B2 from '../components/customs/Button/B2';
-import B3 from '../components/customs/Button/B3';
-import Big from '../components/customs/Card/Big';
-import PagerView from 'react-native-pager-view';
-import { create } from 'react-test-renderer';
 import Form1 from '../components/customs/Form/Form1';
-import Form2 from '../components/customs/Form/Form2';
-import Form4 from '../components/customs/Form/Form4';
 import RadioGroup, { RadioButtonProps } from 'react-native-radio-buttons-group';
 import { useNavigation } from '@react-navigation/native';
 import CommonHeader from '../components/customs/Button/CommonHeader';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { PhotoIcon as PhotoIconOutline} from 'react-native-heroicons/outline';
+import { Popup } from '../components/customs/Popup/Popup';
 
 
 
@@ -27,6 +21,14 @@ const CreateMenu = () => {
   const [img, setImg] = useState('');
   const [selectedIdIS, setSelectedIdIS] = useState<string | undefined>();
   const [selectedIdTD, setSelectedIdTD] = useState<string | undefined>();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [ChooseData, setChooseData] = useState()
+  const ChangeModalVisible = (bool: boolean | ((prevState: boolean) => boolean)) =>{
+    setIsModalVisible(bool)
+  }
+  const setData = (data:any) => {
+    setChooseData(data)
+  }
   const inStock: RadioButtonProps[] = useMemo(() => ([
     {
       id: '1', // acts as primary key, should be unique and non-empty string
@@ -96,11 +98,11 @@ const CreateMenu = () => {
         style={{ marginHorizontal: 12 }}
         showsVerticalScrollIndicator={false}
       >
-
         <View >
+          {/* <Text>{ChooseData}</Text> */}
         <TouchableOpacity 
           style={[{ width: 345, height: 185, borderRadius: 10, backgroundColor: Colors.input }]}
-          onPress={() => requestCameraPermissions()}
+          onPress={() => ChangeModalVisible(true)}
           >
               {img != '' ? <Image source={{ uri:img }} style={{width: '100%', height: '100%', borderRadius: 10}} /> :
                 <View style={{justifyContent: 'center', alignItems: 'center',width: '100%', height: '100%'}}>
@@ -109,6 +111,17 @@ const CreateMenu = () => {
               }
           </TouchableOpacity>
 
+          <Modal 
+            transparent={true}
+            animationType='fade'
+            visible={isModalVisible}
+            onRequestClose={() => ChangeModalVisible(false)}
+          >
+                <Popup
+                changeModalVisible={ChangeModalVisible}
+                setData={setData}
+                />
+              </Modal>
 
           {/* <TouchableOpacity>
             <Form1
@@ -117,9 +130,9 @@ const CreateMenu = () => {
             />
           </TouchableOpacity> */}
 
-          <B1 title='Nhập ảnh từ thư viện' 
+          {/* <B1 title='Nhập ảnh từ thư viện' 
           style={[{ marginTop: 14, borderBlockColor: '' }]}
-          onPress={() => requestLibraryPermissions()}/>
+          onPress={() => requestLibraryPermissions()}/> */}
         </View>
         <Form1
           placeholder='Tên món ăn'

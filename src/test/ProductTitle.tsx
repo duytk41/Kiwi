@@ -29,15 +29,13 @@ const ProductTitle = () => {
             {/* <CommonHeader title='Tạo nhà hàng'/> */}
             {/* style={{ backgroundColor: 'blue' }} */}
             <ScrollView >
-                <Image source={require('../assets/img /mcDonald.png')} style={{ width: 345, height: 185, borderRadius: 10,}} />
+                <Image source={require('../assets/img/mcDonald.png')} style={{ width: 345, height: 185, borderRadius: 10,}} />
                 <View style={[{ flexDirection: 'row', justifyContent: 'space-between' }]}>
-                    <Text style={[font.h2Title]}>Cheeto</Text>
-                    <Text style={[font.h3Title]}>Price</Text>
+                    <Text style={[font.h2Title]}>French Fried</Text>
+                    <Text style={[font.h3Title]}>$0.59</Text>
                 </View>
 
-                <Text style={[font.subhead]}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Unde, veniam repudiandae in commodi est similique eveniet officiis quis quo rerum earum iste 
-                dolore consectetur optio repellat illum nulla amet. Optio?</Text>
+                <Text style={[font.subhead]}>Potato, salt, ketchup</Text>
                 <Text style={[font.subhead, {marginTop: 10}]}>Nhà hàng: Mc Donald</Text>
                 <Text style={[font.subhead, {marginTop: 10}]}>Giảm giá: 25%</Text>
                 <Text style={[font.subhead, {marginTop: 10}]}>Thời gian chuẩn bị: 25 phút</Text>
@@ -52,7 +50,7 @@ const ProductTitle = () => {
                 />
             </ScrollView>
             <B1 title='Submit'
-            style={[{ borderBlockColor: '' }]}
+            style={[{ marginBottom: 14,}]}
             />
         </View>
     )

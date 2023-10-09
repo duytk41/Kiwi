@@ -35,27 +35,37 @@ const AccountSetting = () => {
         <View>
 
         <Normal
+            icon={require('../../../../assets/icon/24/restaurant.png')}
             header="Your Restaurant"
             subline="Change your restaurant's information"
             onPress={() =>{
               navigation.navigate(AccountStackParamsEnum.CreateRestaurant);
             }}
           />
+          <Dash />
         <Normal
+            icon={require('../../../../assets/icon/24/order.png')}
             header="Your Menu"
             subline="Change your Menu"
             onPress={() =>{
               navigation.navigate(AccountStackParamsEnum.CreateMenu);
             }}
           />
-
+          <Dash />
+        <Normal
+            icon={require('../../../../assets/icon/24/delivery.png')}
+            header="Order status"
+            subline="Track your order status here"
+            onPress={() =>{
+              navigation.navigate(AccountStackParamsEnum.DeliveryInfo);
+            }}
+          />
+          <Dash />
           <Normal
             header="Profile Information"
             subline="Change your account information"
           />
-
           <Dash />
-
           <Normal
             icon={require('../../../../assets/icon/24/lock.png')}
             header="Change Password"

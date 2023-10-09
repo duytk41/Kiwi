@@ -12,18 +12,20 @@ const CommonHeader = ({ title }: Props) => {
     const navigation = useNavigation()
     return (
         <View style={[{ flexDirection: 'row' }]}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ justifyContent: 'center' }}>
                 <ChevronLeftIcon size={25} color="#000000" />
 
             </TouchableOpacity>
             <Text style={[font.h2Title, {
                 color: Colors.Main,
-                left: 80,
+                // backgroundColor: 'blue',
+                textAlign: 'center',
+                width: 325
             }]}>
                 {title}
             </Text>
-        </View>
 
+        </View>
     )
 }
 

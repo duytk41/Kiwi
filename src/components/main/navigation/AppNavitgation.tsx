@@ -8,6 +8,7 @@ import Orders from '../screens/appTab/Orders';
 import AccountSetting from '../screens/appTab/AccountSetting';
 import ActiveTab from '../../customs/Others/ActiveTab';
 import AccountStackNavigation from './AccountStackNavigation';
+import RateList from '../../../test/RateList';
 
 const AppNavitgation = () => {
   const Tab = createBottomTabNavigator();
@@ -60,6 +61,26 @@ const AppNavitgation = () => {
             },
           }}
         />
+        {/* <Tab.Screen
+          name="Love"
+          component={RateList}
+          options={{
+            tabBarIcon: ({focused}) => {
+              return (
+                <><Image
+                  source={require('../../../assets/icon/24/heart.png')}
+                  style={{
+                    width: 24,
+                    height: 24,
+                    tintColor: focused ? Colors.active : Colors.gray,
+                  }}
+                />
+                {focused ==true ? <ActiveTab/>: null}
+                </>
+              );
+            },
+          }}
+        /> */}
         <Tab.Screen
           name="Order"
           component={Orders}

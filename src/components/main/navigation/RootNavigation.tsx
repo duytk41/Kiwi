@@ -25,6 +25,7 @@ export type ParamList = {
     //Tab
     Home: undefined;
     Search: undefined;
+    RateList: undefined;
     Orders: undefined;
     AccountSetting: undefined;
 
@@ -36,8 +37,8 @@ const RootNavigation = () => {
       <Stack.Navigator
       // initialRouteName='AppNavitgation'
       screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name='AppNavigation' component={AppNavitgation}/> */}
-        <Stack.Screen name='UserNavigation' component={UserNavigation}/>
+        <Stack.Screen name='AppNavigation' component={AppNavitgation}/>
+        {/* <Stack.Screen name='UserNavigation' component={UserNavigation}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   )
