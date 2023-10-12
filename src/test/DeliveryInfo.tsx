@@ -29,9 +29,9 @@ const DeliveryInfo = () => {
             require('../assets/img/mcDonald.png'),
           ]}
           />
-            <Text style={[font.h3Title, {marginTop: 10}]}>Đang Chuẩn bị đơn</Text>
-            <Text style={[font.subhead, {marginTop: 10}]}>Địa chỉ: 123, Hồ Văn Huê, Phú Nhuận</Text>
-            <Text style={[font.subhead, {marginTop: 10}]}>Chưa nhận</Text>
+            <Text style={[font.h3Title, {marginTop: 10, color: Colors.Main}]}>Đang Chuẩn bị đơn</Text>
+            <Text style={[font.h3Title, {marginTop: 10, color: Colors.Main}]}>Địa chỉ: 123, Hồ Văn Huê, Phú Nhuận</Text>
+            <Text style={[font.h3Title, {marginTop: 10, color: Colors.Main}]}>Chưa nhận</Text>
       </ScrollView>
     </View>
   );

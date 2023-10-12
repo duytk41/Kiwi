@@ -22,11 +22,9 @@ const App = () => {
       {/* <RootNavigation/> */}
       {/* <CreateMenu/> */}
       {/* <CreateRestaurant/> */}
-      {/* <AccountSetting/> */}
-      {/* <CommonHeader/> */}
-      <RateList/>
-      {/* <AccountStackNavigation/> */}
+      {/* <RateList/> */}
       {/* <ProductTitle/> */}
+      <AccountStackNavigation/>
     </View>
   )
 }

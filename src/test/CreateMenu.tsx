@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, Button, ScrollView, StatusBar, TouchableOpacity, PermissionsAndroid, Modal } from 'react-native';
 import { styles, Colors, font, components } from '../components/customs/Styles';
-import Fade from '../components/customs/animations/Fade';
-import Move from '../components/customs/animations/Move';
 import B1 from '../components/customs/Button/B1';
 import Form1 from '../components/customs/Form/Form1';
 import RadioGroup, { RadioButtonProps } from 'react-native-radio-buttons-group';
@@ -19,6 +17,7 @@ const CreateMenu = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [img, setImg] = useState('');
+  const [imgResource, setImgResource] = useState('');
   const [selectedIdIS, setSelectedIdIS] = useState<string | undefined>();
   const [selectedIdTD, setSelectedIdTD] = useState<string | undefined>();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -59,7 +58,7 @@ const CreateMenu = () => {
       const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         console.log("Camera permission given");
-        const result:any = await launchCamera({mediaType:'photo',cameraType:'back'})
+        const result:any = await launchCamera({mediaType:'photo',cameraType:'back', saveToPhotos: true})
         console.log(result.assets[0].uri);
         setImg(result.assets[0].uri);
       } else {
@@ -72,14 +71,14 @@ const CreateMenu = () => {
 
   const requestLibraryPermissions = async () => {
     try {
-      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
+      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         console.log("Library permission given");
-        const result:any = await launchImageLibrary({mediaType:'photo'});
+        const result:any = await launchImageLibrary({mediaType:'photo',});
         console.log(result.assets[0].uri);
-        setImg(result.assets[0].uri);
+        setImgResource(result.assets[0].uri);
       } else {
-        console.log("Camera permission denied");
+        console.log("Library permission denied");
       }
     } catch (err) {
       console.warn(err);
@@ -102,7 +101,8 @@ const CreateMenu = () => {
           {/* <Text>{ChooseData}</Text> */}
         <TouchableOpacity 
           style={[{ width: 345, height: 185, borderRadius: 10, backgroundColor: Colors.input }]}
-          onPress={() => ChangeModalVisible(true)}
+          // onPress={() => ChangeModalVisible(true)}
+          onPress={() => requestCameraPermissions()}
           >
               {img != '' ? <Image source={{ uri:img }} style={{width: '100%', height: '100%', borderRadius: 10}} /> :
                 <View style={{justifyContent: 'center', alignItems: 'center',width: '100%', height: '100%'}}>
@@ -130,9 +130,9 @@ const CreateMenu = () => {
             />
           </TouchableOpacity> */}
 
-          {/* <B1 title='Nhập ảnh từ thư viện' 
+          <B1 title='Nhập ảnh từ thư viện' 
           style={[{ marginTop: 14, borderBlockColor: '' }]}
-          onPress={() => requestLibraryPermissions()}/> */}
+          onPress={() => requestLibraryPermissions()}/>
         </View>
         <Form1
           placeholder='Tên món ăn'
@@ -194,9 +194,6 @@ const CreateMenu = () => {
         style={[{marginVertical: 14}]}/>
       </ScrollView>
     </View>
-
-
-
   );
 };
 
