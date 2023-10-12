@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 const AccountStackNavigation = () => {
   return (
-    <NavigationContainer>
+
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {
           AccountStackScreens().map((item, index) =>
@@ -20,7 +20,7 @@ const AccountStackNavigation = () => {
           )
         }
       </Stack.Navigator>
-    </NavigationContainer>
+
   )
 }
 

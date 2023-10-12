@@ -8,11 +8,12 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { AccountStackParamsEnum, AccountStackParamsList } from '../../navigation/ParamList/AccountStackParams';
 
 
-type AccountSettingNavigationProp = StackNavigationProp<AccountStackParamsList>;
+type AccountSettingNavigationProp = StackNavigationProp<AccountStackParamsList, AccountStackParamsEnum.AccountSetting>;
 
 
 const AccountSetting = () => {
   const navigation = useNavigation<AccountSettingNavigationProp>();
+
   const Dash = () => {
     return (
       <View
