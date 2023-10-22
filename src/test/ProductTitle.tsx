@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Image, Alert, Button, ScrollView, StatusBar, TouchableOpacity, PermissionsAndroid } from 'react-native';
 import { styles, Colors, font, components } from '../components/customs/Styles';
-import Fade from '../components/customs/animations/Fade';
-import Move from '../components/customs/animations/Move';
 import B1 from '../components/customs/Button/B1';
-import B2 from '../components/customs/Button/B2';
-import B3 from '../components/customs/Button/B3';
-import Big from '../components/customs/Card/Big';
 import Form1 from '../components/customs/Form/Form1';
 import { useNavigation } from '@react-navigation/native';
 import CommonHeader from '../components/customs/Button/CommonHeader';

@@ -19,12 +19,7 @@ import RateList from './src/test/RateList'
 const App = () => {
   return (
     <View style={[styles.container]}>
-      {/* <RootNavigation/> */}
-      {/* <CreateMenu/> */}
-      {/* <CreateRestaurant/> */}
-      {/* <RateList/> */}
-      {/* <ProductTitle/> */}
-      <AccountStackNavigation/>
+      <RootNavigation/>
     </View>
   )
 }

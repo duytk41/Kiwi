@@ -7,9 +7,7 @@ import UserNavigation from './UserNavigation';
 import AppNavitgation from './AppNavitgation';
 import AccountStackNavigation from './AccountStackNavigation';
 
-
 const Stack = createStackNavigator();
-
 
 export enum ParamsScreenEnum {
   // Login
@@ -34,7 +32,6 @@ export enum ParamsScreenEnum {
   AppNavigation = 'AppNavigation',
   UserNavigation = 'UserNavigation',
   AccountStackNavigation = 'AccountStackNavigation',
-
 }
 
 export type ParamList = {
@@ -54,6 +51,7 @@ export type ParamList = {
   Home: undefined;
   Search: undefined;
   Orders: undefined;
+  RateList: undefined;
   AccountSetting: undefined;
 
   //Navigation

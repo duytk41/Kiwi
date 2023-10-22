@@ -1,8 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, Image, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import { font, styles } from '../components/customs/Styles'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
-import B3 from '../components/customs/Button/B3'
 
 const loveFoodList = [
     { id: '1', name: 'Hamburger', restaurantName: 'Burger King', price: 4.55, foodImg: require('../assets/img/burger.png') },
@@ -16,7 +14,6 @@ const loveFoodList = [
     { id: '9', name: 'Hamburger', restaurantName: 'Burger King', price: 4.55, foodImg: require('../assets/img/burger.png') },
     { id: '10', name: 'Hamburger', restaurantName: 'Burger King', price: 4.55, foodImg: require('../assets/img/burger.png') },
 ]
-
 const RateList = () => {
     const [listItems, setListItems] = useState(loveFoodList)
     const getItem = (item: any) => {
@@ -40,12 +37,8 @@ const RateList = () => {
                 <TouchableOpacity style={{ justifyContent: 'center' }}>
                     <Image source={require('../assets/icon/24/close.png')} style={{ width: 30, height: 30 }} />
                 </TouchableOpacity>
-                
             </View>
-            
-
         )
-
     }
     return (
         <View style={[styles.container1, {}]}>
@@ -57,5 +50,4 @@ const RateList = () => {
         </View>
     )
 }
-
 export default RateList
